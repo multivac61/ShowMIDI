@@ -105,26 +105,26 @@ juce_add_binary_data(${CMAKE_PROJECT_NAME}_BinaryData
 
 juce_generate_juce_header(${CMAKE_PROJECT_NAME})
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/AboutComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/AboutComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/Main.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/MainLayoutComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/MidiDeviceComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/MidiDevicesListener.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/PaintedButton.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/PluginEditor.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/PluginProcessor.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/PluginSettings.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/PopupColourSelector.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/PortListComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/PropertiesSettings.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/SettingsComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/ShowMidiApplication.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/SidebarComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/StandaloneDevicesComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/StandaloneWindow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/Theme.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/UwynLookAndFeel.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/AboutComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/AboutComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/Main.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/MainLayoutComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/MidiDeviceComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/MidiDevicesListener.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/PaintedButton.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/PluginEditor.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/PluginProcessor.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/PluginSettings.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/PopupColourSelector.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/PortListComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/PropertiesSettings.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/SettingsComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/ShowMidiApplication.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/SidebarComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/StandaloneDevicesComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/StandaloneWindow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/Theme.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/UwynLookAndFeel.cpp
 )
 
 add_dependencies(${CMAKE_PROJECT_NAME} ${CMAKE_PROJECT_NAME}_BinaryData)
