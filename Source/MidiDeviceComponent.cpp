@@ -856,7 +856,7 @@ namespace showmidi
     void MidiDeviceComponent::resized()           { pimpl_->resized(); }
     void MidiDeviceComponent::setPaused(bool p)   { pimpl_->setPaused(p); }
 
-    void MidiDeviceComponent::handleIncomingMidiMessage(const MidiMessage& m)   { pimpl_->handleIncomingMidiMessage(nullptr, m); };
+    void MidiDeviceComponent::handleIncomingMidiMessage(const MidiMessage& m)   { pimpl_->handleIncomingMidiMessage(nullptr, m); }
     bool MidiDeviceComponent::isInterestedInFileDrag(const StringArray& f)      { return pimpl_->isInterestedInFileDrag(f); }
     void MidiDeviceComponent::filesDropped(const StringArray& f, int x, int y)  { pimpl_->filesDropped(f, x, y); }
 }

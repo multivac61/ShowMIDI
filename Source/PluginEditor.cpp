@@ -65,7 +65,7 @@ namespace showmidi
 #endif
         }
         
-        ~Pimpl()
+        ~Pimpl() override
         {
             stopTimer(RenderDevices);
         }
@@ -173,7 +173,7 @@ namespace showmidi
 
     ShowMIDIPluginAudioProcessorEditor::~ShowMIDIPluginAudioProcessorEditor() = default;
     
-    void ShowMIDIPluginAudioProcessorEditor::handleIncomingMidiMessage(const MidiMessage& m)   { pimpl_->handleIncomingMidiMessage(m); };
+    void ShowMIDIPluginAudioProcessorEditor::handleIncomingMidiMessage(const MidiMessage& m)   { pimpl_->handleIncomingMidiMessage(m); }
 
     void ShowMIDIPluginAudioProcessorEditor::paint(Graphics& g)
     {

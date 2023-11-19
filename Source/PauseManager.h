@@ -24,7 +24,7 @@ namespace showmidi
     class PauseManager
     {
     public:
-        virtual ~PauseManager() {};
+        virtual ~PauseManager() {}
         
         virtual void togglePaused() = 0;
     };

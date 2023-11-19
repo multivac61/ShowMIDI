@@ -27,7 +27,7 @@ namespace showmidi
     class SettingsManager
     {
     public:
-        virtual ~SettingsManager() {};
+        virtual ~SettingsManager() {}
         
         virtual bool isPlugin() = 0;
         

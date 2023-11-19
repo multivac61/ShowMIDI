@@ -73,7 +73,7 @@ namespace showmidi
         {
             pimpl_->layout_.setBounds(0, 0, getWidth(), getHeight());
         }
-    };
+    }
     
     void StandaloneWindow::closeButtonPressed() { pimpl_->closeButtonPressed(); }
     int StandaloneWindow::getSidebarWidth()     { return pimpl_->layout_.getSidebarWidth(); }

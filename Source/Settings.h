@@ -50,8 +50,8 @@ namespace showmidi
         static constexpr int DEFAULT_TIMEOUT_DELAY { 2 };
         static constexpr WindowPosition DEFAULT_WINDOW_POSITION { windowRegular };
 
-        Settings() {};
-        virtual ~Settings() {};
+        Settings() {}
+        virtual ~Settings() {}
         
         virtual int getOctaveMiddleC() = 0;
         virtual void setOctaveMiddleC(int) = 0;

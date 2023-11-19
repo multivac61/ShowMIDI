@@ -50,7 +50,7 @@ namespace showmidi
 #endif
         }
         
-        ~Pimpl()
+        ~Pimpl() override
         {
             SMApp.getMidiDevicesListeners().remove(this);
             

@@ -25,7 +25,7 @@ namespace showmidi
     {
     public:
         StandaloneWindow(String name);
-        ~StandaloneWindow();
+        ~StandaloneWindow() override;
 
         void resized() override;
         void closeButtonPressed() override;

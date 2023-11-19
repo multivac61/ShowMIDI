@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "UwynLookAndFeel.h"
+#include "BinaryData.h"
 
 using namespace showmidi;
 

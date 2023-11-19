@@ -27,10 +27,10 @@ namespace showmidi
     {
     public:
         SettingsComponent(SettingsManager&);
-        ~SettingsComponent();
-        
+        ~SettingsComponent() override;
+
         void paint(Graphics&) override;
-        
+
         struct Pimpl;
     private:
         std::unique_ptr<Pimpl> pimpl_;

@@ -25,7 +25,7 @@ namespace showmidi
     {
     public:
         UwynLookAndFeel();
-        virtual ~UwynLookAndFeel();
+        virtual ~UwynLookAndFeel() override;
         
         Typeface::Ptr getTypefaceForFont(const Font& font) override;
 

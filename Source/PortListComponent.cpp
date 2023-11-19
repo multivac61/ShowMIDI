@@ -22,6 +22,7 @@
 #include "MidiDevicesListener.h"
 #include "PaintedButton.h"
 #include "SettingsComponent.h"
+#include "BinaryData.h"
 
 namespace showmidi
 {

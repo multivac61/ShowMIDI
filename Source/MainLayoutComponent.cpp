@@ -52,7 +52,7 @@ namespace showmidi
             owner_->addAndMakeVisible(viewport_);
         }
         
-        ~Pimpl()
+        ~Pimpl() override
         {
             owner_->removeKeyListener(this);
         }
@@ -134,8 +134,8 @@ namespace showmidi
     
     MainLayoutComponent::~MainLayoutComponent() = default;
     
-    bool MainLayoutComponent::isInterestedInFileDrag(const StringArray& f)  { return pimpl_->isInterestedInFileDrag(f); };
-    void MainLayoutComponent::filesDropped(const StringArray& f, int, int)  { pimpl_->filesDropped(f); };
+    bool MainLayoutComponent::isInterestedInFileDrag(const StringArray& f)  { return pimpl_->isInterestedInFileDrag(f); }
+    void MainLayoutComponent::filesDropped(const StringArray& f, int, int)  { pimpl_->filesDropped(f); }
 
     void MainLayoutComponent::resized()         { pimpl_->resized(); }
     int MainLayoutComponent::getSidebarWidth()  { return pimpl_->getSidebarWidth(); }
