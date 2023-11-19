@@ -32,14 +32,12 @@ set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED "NO")
 
 set(COMPANY_NAME "Uwyn")
 set(COMPANY_WEBSITE "https://uwyn.com/")
-set(APPLICATION_NAME "ShowMIDI")
 set(BUNDLE_ID "com.uwyn.showmidi.clap")
 set(ICON_BIG "${CMAKE_CURRENT_SOURCE_DIR}/Assets/appicon.png")
-set(ICON_SMALL "${CMAKE_CURRENT_SOURCE_DIR}/Assets/appicon.png")
 
 juce_add_plugin("${CMAKE_PROJECT_NAME}"
         ICON_BIG ${ICON_BIG}
-        ICON_SMALL ${ICON_SMALL}
+        ICON_SMALL ${ICON_BIG}
         COMPANY_NAME ${COMPANY_NAME}
         COMPANY_WEBSITE ${COMPANY_WEBSITE}
         COMPANY_EMAIL ${COMPANY_EMAIL}
@@ -64,12 +62,13 @@ juce_add_plugin("${CMAKE_PROJECT_NAME}"
         com.apple.security.cs.allow-unsigned-executable-memory
         com.apple.security.cs.disable-library-validation
         com.apple.security.device.audio-input
+        EDITOR_NEEDS_KEYBOARD_FOCUS TRUE
 )
 
 CPMAddPackage(NAME clap-juce-extensions
         GITHUB_REPOSITORY "multivac61/clap-juce-extensions"
         GIT_TAG "migrate-from-git-submodules-to-cpm"
-        OPTIONS "CLAP_JUCE_EXTENSIONS_BUILD_EXAMPLES OFF") # There is a bug in clap-juce-extensions-src/cmake/JucerClap.cmake:41
+        OPTIONS "CLAP_JUCE_EXTENSIONS_BUILD_EXAMPLES OFF")
 
 if (APPLE)
     set(JUCER_GENERATOR "Xcode")
@@ -81,22 +80,12 @@ endif ()
 
 include(${clap-juce-extensions_SOURCE_DIR}/cmake/JucerClap.cmake)
 
-set(PLUGIN_LIBRARY_PATH "${CMAKE_PROJECT_NAME}")
-create_jucer_clap_target(
-        TARGET ShowMIDI
-        PLUGIN_NAME "${CMAKE_PROJECT_NAME}"
-        BINARY_NAME "${CMAKE_PROJECT_NAME}"
-
-        # You will want to check all this information
-        MANUFACTURER_NAME "Uwyn"
-        MANUFACTURER_CODE Uwyn
+#set(PLUGIN_LIBRARY_PATH "${CMAKE_PROJECT_NAME}")
+clap_juce_extensions_plugin(
+        TARGET ${PROJECT_NAME}
         PLUGIN_CODE shmi
-        VERSION_STRING "$ENV{RELEASE_VERSION}"
-        CLAP_ID "com.uwyn.showmidi.clap"
+        CLAP_ID "${BUNDLE_ID}"
         CLAP_FEATURES note-effect utility
-        CLAP_MANUAL_URL "https://www.uwyn.com"
-        CLAP_SUPPORT_URL "https://www.uwyn.com"
-        EDITOR_NEEDS_KEYBOARD_FOCUS TRUE
 )
 
 juce_add_binary_data(${CMAKE_PROJECT_NAME}_BinaryData
@@ -147,7 +136,6 @@ target_compile_definitions(${CMAKE_PROJECT_NAME}
         JUCE_VST3_CAN_REPLACE_VST2=0
         JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
         JUCE_MODAL_LOOPS_PERMITTED=1
-        JUCE_SILENCE_XCODE_15_LINKER_WARNING=1
 
         JUCE_PLUGINHOST_LADSPA=1
         JUCE_PLUGINHOST_VST=0
@@ -158,6 +146,8 @@ target_compile_definitions(${CMAKE_PROJECT_NAME}
         JUCE_USE_WINRT_MIDI=0
         JUCE_FORCE_WINRT_MIDI=0
         >
+
+        $<$<CXX_COMPILER_ID:AppleClang>:JUCE_SILENCE_XCODE_15_LINKER_WARNING=1>
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME}
@@ -209,7 +199,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_product_unlocking
-        clap=juce=extensions
+#        clap-juce-extensions
+#        clap_juce_extensions
 
         ${CMAKE_PROJECT_NAME}_BinaryData
 )
