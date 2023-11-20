@@ -70,17 +70,8 @@ CPMAddPackage(NAME clap-juce-extensions
         GIT_TAG "migrate-from-git-submodules-to-cpm"
         OPTIONS "CLAP_JUCE_EXTENSIONS_BUILD_EXAMPLES OFF")
 
-if (APPLE)
-    set(JUCER_GENERATOR "Xcode")
-elseif (WIN32)
-    set(JUCER_GENERATOR "VisualStudio2022")
-else () # Linux
-    set(JUCER_GENERATOR "LinuxMakefile")
-endif ()
-
 include(${clap-juce-extensions_SOURCE_DIR}/cmake/JucerClap.cmake)
 
-#set(PLUGIN_LIBRARY_PATH "${CMAKE_PROJECT_NAME}")
 clap_juce_extensions_plugin(
         TARGET ${PROJECT_NAME}
         PLUGIN_CODE shmi
@@ -190,17 +181,10 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         PRIVATE
         juce::juce_audio_utils
         juce::juce_audio_devices
-        juce::juce_audio_formats
         juce::juce_audio_plugin_client
         juce::juce_audio_processors
-        juce::juce_audio_utils
-        juce::juce_gui_basics
-        juce::juce_gui_extra
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
-        juce::juce_product_unlocking
-#        clap-juce-extensions
-#        clap_juce_extensions
 
         ${CMAKE_PROJECT_NAME}_BinaryData
 )
