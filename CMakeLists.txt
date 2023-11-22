@@ -6,7 +6,7 @@ project(ShowMIDI VERSION 0.6.2)
 # - First do the native build of at least the ShowMIDI_shared target on your platform as Debug or Release
 # - Then do `cmake -Bbuild_clap -DCMAKE_BUILD_TYPE=Debug` or Release of course
 # - Then do `cmake --build build_clap --config Debug` or Release
-# 
+#
 # This will result in build_clap/ShowMIDI_artefacts/Debug/ShowMIDI.clap (or Release).
 #
 # For this to work a couple of things need to be configured
@@ -65,10 +65,7 @@ juce_add_plugin("${CMAKE_PROJECT_NAME}"
         EDITOR_NEEDS_KEYBOARD_FOCUS TRUE
 )
 
-CPMAddPackage(NAME clap-juce-extensions
-        GITHUB_REPOSITORY "multivac61/clap-juce-extensions"
-        GIT_TAG "migrate-from-git-submodules-to-cpm"
-        OPTIONS "CLAP_JUCE_EXTENSIONS_BUILD_EXAMPLES OFF")
+CPMAddPackage("gh:multivac61/clap-juce-extensions")
 
 include(${clap-juce-extensions_SOURCE_DIR}/cmake/JucerClap.cmake)
 
